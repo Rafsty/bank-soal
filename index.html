@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -30,5 +29,22 @@
   <div id="soal-container">Memuat soal...</div>
 
   <script src="script.js"></script>
+  <script>
+    function applyFilter() {
+      const tahun = document.getElementById('filter-tahun').value;
+      const jenis = document.getElementById('filter-jenis').value;
+      const semester = document.getElementById('filter-semester').value;
+      const pelajaran = document.getElementById('filter-pelajaran').value;
+
+      const filtered = allData.filter(item =>
+        (tahun === "" || item.tahun === tahun) &&
+        (jenis === "" || item.jenis === jenis) &&
+        (semester === "" || item.semester === semester) &&
+        (pelajaran === "" || item.pelajaran === pelajaran)
+      );
+
+      renderSoal(filtered);
+    }
+  </script>
 </body>
 </html>
