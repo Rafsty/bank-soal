@@ -1,7 +1,8 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbyxk_k_Y4XfdgmWuvKS8q7PVKPnXpq5DuWIqBcRr_Rowa0xlWKv7eOwjOea_3g7IOjO/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbxRssHB3FzYnDIqYbGn3QixWd3TRhUPW-FeOT-qyGfWSz0LCBkANTZ-dLYUV1_KkhTo/exec";
 
 let allData = [];
 
+// Ambil data soal dari Google Sheets via Web App
 fetch(API_URL)
   .then(res => res.json())
   .then(data => {
@@ -10,6 +11,7 @@ fetch(API_URL)
     renderSoal(data);
   });
 
+// Tampilkan daftar soal
 function renderSoal(data) {
   const container = document.getElementById('soal-container');
   container.innerHTML = '';
@@ -32,6 +34,7 @@ function renderSoal(data) {
   });
 }
 
+// Buat filter dropdown
 function populateFilter(data) {
   const tahunSet = new Set(data.map(d => d.tahun));
   const jenisSet = new Set(data.map(d => d.jenis));
@@ -48,6 +51,7 @@ function populateFilter(data) {
     Array.from(pelajaranSet).map(x => `<option value="${x}">${x}</option>`).join('');
 }
 
+// Tangani submit form soal
 document.getElementById('form-soal').addEventListener('submit', function(e) {
   e.preventDefault();
   const form = e.target;
@@ -57,7 +61,6 @@ document.getElementById('form-soal').addEventListener('submit', function(e) {
   reader.onload = function() {
     const base64Data = reader.result.split(',')[1];
 
-    // Pakai FormData TANPA headers
     const formData = new FormData();
     formData.append("tahun", form.tahun.value);
     formData.append("jenis", form.jenis.value);
@@ -68,7 +71,7 @@ document.getElementById('form-soal').addEventListener('submit', function(e) {
 
     fetch(API_URL, {
       method: "POST",
-      body: formData // TANPA headers!
+      body: formData
     })
     .then((res) => res.text())
     .then((text) => {
