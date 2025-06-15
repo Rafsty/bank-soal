@@ -1,2 +1,1 @@
-# bank-soal
-Soal Soal Ujian
+Panduan lengkap tersedia di langkah-langkah sebelumnya.

@@ -1,0 +1,32 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 30px;
+  background: #f7f7f7;
+  color: #333;
+}
+h1, h2 {
+  color: #2c3e50;
+  text-align: center;
+}
+form {
+  margin-bottom: 30px;
+  text-align: center;
+}
+form input, form button {
+  margin: 5px;
+  padding: 8px;
+  width: 200px;
+}
+.soal-item {
+  background: #fff;
+  margin: 15px auto;
+  padding: 15px;
+  border-radius: 8px;
+  width: 90%;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+.soal-item a {
+  color: #2980b9;
+  text-decoration: none;
+}

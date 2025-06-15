@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bank Soal Ujian Sekolah</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Bank Soal Ujian Sekolah</h1>
+
+  <h2>Tambah Soal Baru (Upload PDF)</h2>
+  <form id="form-soal">
+    <input type="text" placeholder="Tahun Ajaran" name="tahun" required><br>
+    <input type="text" placeholder="Jenis Ujian (UTS/UAS)" name="jenis" required><br>
+    <input type="text" placeholder="Semester (Ganjil/Genap)" name="semester" required><br>
+    <input type="text" placeholder="Pelajaran" name="pelajaran" required><br>
+    <input type="file" name="file" accept=".pdf" required><br>
+    <button type="submit">Upload & Tambah Soal</button>
+  </form>
+
+  <h2>Filter Soal</h2>
+  <select id="filter-tahun" onchange="applyFilter()"></select>
+  <select id="filter-jenis" onchange="applyFilter()"></select>
+  <select id="filter-semester" onchange="applyFilter()"></select>
+  <select id="filter-pelajaran" onchange="applyFilter()"></select>
+
+  <h2>Daftar Soal</h2>
+  <div id="soal-container">Memuat soal...</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
